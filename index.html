@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ControlBench">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ControlBench</title>
+
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="./static/images/logo.webp">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/bulma-carousel.js"></script>
+  <style>
+    .results-carousel {
+        width: 80%;       /* Set to your desired width */
+        margin: 0 auto;   /* Center the carousel horizontally */
+    }
+
+  </style>
+<style>
+  .slider-container {
+    position: relative;
+    width: 100%;
+    max-width:1000px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .slider-item {
+  width: 100%; /* 让每个 .slider-item 填满 .slider-wrapper */
+  height: 100%; /* 让每个 .slider-item 填满 .slider-wrapper */
+  display: flex; /* 使用 Flexbox 布局来居中内容 */
+  justify-content: center; /* 水平居中内容 */
+  align-items: center; /* 垂直居中内容 */
+  flex-shrink: 0; /* 防止 flex 子元素缩小 */
+}
+
+/* 如果 .slider-item 包含图片 */
+.slider-item img {
+  width: 100%; /* 宽度填满 .slider-item */
+  height: auto; /* 高度自适应以保持图片比例 */
+  object-fit: cover; /* 覆盖整个区域，可能会剪裁某些部分 */
+}
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .left-btn {
+    left: 10px;
+  }
+  
+  .right-btn {
+    right: 10px;
+  }
+  
+  </style>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Capabilities of Large Language Models in Control Engineering:
+A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://darioushk1.github.io/">Darioush Kevian</a><sup>1</sup>,</span>
+              <a href="https://www.usmanahmedsyed.com/">Usman Syed</a><sup>1</sup>,</span>
+              <a href="https://sites.google.com/view/guoxingang">Xingang Guo</a><sup>1</sup>,</span>
+              <a href="https://aaronhavens.github.io/">Aaron Havens</a><sup>1</sup>,</span>
+              <a href="https://ece.illinois.edu/about/directory/faculty/dullerud">Geir Dullerud</a><sup>1</sup>,</span>
+              <a href="https://seiler.engin.umich.edu/">Peter Seiler</a><sup>2</sup>,</span>
+              <a href="https://sites.google.com/view/lianhuiqin/home">Lianhui Qin</a><sup>3,4</sup>,</span>
+              <a href="https://binhu7.github.io/">Bin Hu</a><sup>1</sup>,</span>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign</span>
+            <span class="author-block"><sup>2</sup>University of Michigan</span>
+            <span class="author-block"><sup>3</sup>Allen Institute for AI</span>
+            <span class="author-block"><sup>4</sup>University of California San Diego</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.03647"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- ControlBench Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AGI4Engineering/LLM4Control/tree/d733f44b4a38f5150947308ff38cc3341efffe5a/ControlBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>ControlBench</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AGI4Engineering/LLM4Control/tree/d92b296fc2df61e8132caaace7c4f0babbd2896f/ControlBench-C"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>ControlBench-C</span>
+                  </a>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AGI4Engineering/LLM4Control/tree/231dca59016bb5e5ee3730fc9a7efd71f6dc6be3/logs"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Sampled LLM Responses</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           In this paper, we explore the capabilities of state-of-the-art large language models (LLMs) such as GPT-4, Claude 3 Opus, 
+            and Gemini 1.0 Ultra in solving undergraduate-level control problems. Controls provides an interesting case study for LLM 
+            reasoning due to its combination of mathematical theory and engineering design. We introduce ControlBench, a benchmark dataset 
+            tailored to reflect the breadth, depth, and complexity of classical control  design. We use this dataset to study and evaluate the 
+            problem-solving abilities of these LLMs in the context of control engineering. We present evaluations conducted by a panel of human experts, 
+            providing insights into the accuracy, reasoning, and explanatory prowess of LLMs in control engineering. Our  analysis reveals the strengths and 
+            limitations of each LLM in the context of classical control, and our results imply that Claude 3 Opus has become the state-of-the-art LLM for solving 
+            undergraduate control problems.  Our study serves as an initial step towards the broader goal of employing artificial general intelligence in control engineering. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+     <h3>ControlBench Dataset</h3>
+    <p>We introduce <strong>ControlBench</strong>, a benchmark dataset tailored to reflect the breadth, depth, and complexity of classical control design. The statistics of ControlBench 
+      for each sub-topic is summarzed as below.</p>
+      </div>
+    <!-- Summary of the work -->
+     <div class="content">
+    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/dataset_overview.png"
+           style="width: 100%; max-width: 400px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+    </div>
+    <!-- Explanation of the diagram -->
+    <div class="content" style="margin-top: 20px;">
+    <ul>
+        <li>ControlBench comprises 147 problems sourced from exercises in <a href="https://www.mhprofessional.com/schaum-s-outline-of-feedback-and-control-systems-3rd-edition-9780071829489-usa">Schaum’s outline of feedback and control systems</a>,
+          and problems gathered from undergraduate control classes at University of Michigan (EECS 460) and University of Illinois, Urbana-Champaign (ECE 486).</li>
+        <li>Both textual and visual elements are inclcuded in ControlBench to mirror the multifaceted nature of real-world applications.</li>
+        <li>We also introduced <strong>ControlBench-C</strong>, tansformed from ControlBench by reformulating 100 open-ended problems into multiple-choice questions for efficient evaluations.</li>
+      </ul>
+      <p> Here we show an example extracted from ControlBench and ControlBench-C
+            <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/sample_example.png"
+           style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+    </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+     <h3>Evaluations of Leading LLMs on ControlBench</h3>
+    <p>We assess the capabilities of GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra on ControlBench using a zero-shot prompting followed by self-checking strategy, and examine the responses through human annotation. 
+      Below we present our zero-shot prompt and self-checking prompt.</p>
+      </div>
+    <!-- Summary of the work -->
+     <div class="content">
+    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/zero_prompt.png"
+           style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Summary of the work -->
+    <div class="content">
+      <h3>Evaluation Results</h3>
+      <p><strong>Evaluation Metrics</strong>: Accuracy (<strong>ACC</strong>) is defined as the proportion of instances where the LLMs correctly solve the given problems, while Self-Checked Accuracy (<strong>ACC-s</strong>) quantifies the instances in which LLMs 
+        successfully amend their answers after a self-review process. The best results for each metric are highlighted in bold.</p>
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/evaluations_whole.png"
+           style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+      <div class="content has-text-justified">
+        <ul>
+          <li>Claude 3 Opus emerges as the standout model, demonstrating superior performance in both ACC and ACC-s.</li>
+          <li>GPT-4 displays competitive accuracy in specific areas, such as Block Diagrams, Root-Locus Design, and System Sensitivity Measures, but does not match Claude 3 Opus in overall performance.</li>
+          <li>Gemini 1.0 Ultra ranks lower in general effectiveness.</li>
+        </ul>
+       </div>
+   </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Summary of the work -->
+    <div class="content">
+      <h3>Failure Modes Analysis</h3>
+      <p>Despite their great potential, LLMs can fail in many different ways. The following figure categorizes the LLM failures into seven types, 
+        and highlight the proportions (%) for GPT-4 and Claude 3 Opus, respectively.</p>
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/error_type.png"
+           style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+      <div class="content has-text-justified">
+        <ul>
+          <li>The biggest bottleneck preventing GPT-4 to achieve better accuracy on ControlBench is its limited reasoning capabilities.</li>
+          <li>The performance of Claude 3 Opus can be further boosted by improving its calculation abilities or calling external tools.</li>
+        </ul>
+       </div>
+   </div>
+  </div>
+</section>
+
+  
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Summary of the work -->
+    <div class="content">
+      <h3>Examples</h3>
+      <p>
+      Here are sampled responses from GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra for selected problems in ControlBench:
+      </p>
+    </div>
+    
+    <!-- Large plot display -->
+    <div class="slider-container">
+      <div class="slider-wrapper">
+        <div class="slider-item">
+          <img src="./static/images/example1.png" alt="Image 1">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example2.png" alt="Image 2">  
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example3.png" alt="Image 3">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example4.png" alt="Image 4">
+        </div>
+           <div class="slider-item">
+          <img src="./static/images/example5.png" alt="Image 5">
+        </div>
+         <div class="slider-item">
+          <img src="./static/images/example6.png" alt="Image 6">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example7.png" alt="Image 6">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example8.png" alt="Image 6">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example9.png" alt="Image 6">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example10.png" alt="Image 6">
+        </div>
+        <div class="slider-item">
+          <img src="./static/images/example11.png" alt="Image 6">
+        </div>
+      </div>
+      <button class="left-btn"><</button>
+      <button class="right-btn"> > </button>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{Darioush2024ControlBench,
+  author    = {Darioush, Kevian and Usman, Syed and Xingang, Guo and Aaron, Havens and Geir, Dullerud and Peter, Seiler and Lianhui, Qin and Bin, Hu},
+  title     = {Capabilities of Large Language Models in Control Engineering: A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra},
+  journal   = {arXiv preprint arXiv:2404.03647},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- <script>
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  const sliderItems = document.querySelectorAll('.slider-item');
+  let currentIndex = 0;
+
+  document.querySelector('.left-btn').addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
+    }
+  });
+
+  document.querySelector('.right-btn').addEventListener('click', () => {
+    if (currentIndex < sliderItems.length - 1) {
+      currentIndex++;
+      updateSliderPosition();
+    }
+  });
+
+  function updateSliderPosition() {
+    const newTransformValue = -currentIndex * 100; // Assuming each slide is 100% of the container width
+    sliderWrapper.style.transform = `translateX(${newTransformValue}%)`;
+  }
+</script> -->
+
+
+<script>
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  const sliderItems = document.querySelectorAll('.slider-item');
+  let currentIndex = 0;
+
+  document.querySelector('.left-btn').addEventListener('click', () => {
+    // Modify this to go to the last image if currently at the first image
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = sliderItems.length - 1; // Go to the last image
+    }
+    updateSliderPosition();
+  });
+
+  document.querySelector('.right-btn').addEventListener('click', () => {
+    // Reset currentIndex to 0 if on the last image, otherwise increment
+    if (currentIndex < sliderItems.length - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // Reset to the first image
+    }
+    updateSliderPosition();
+  });
+
+  function updateSliderPosition() {
+    const newTransformValue = -currentIndex * 100; // Assuming each slide is 100% of the container width
+    sliderWrapper.style.transform = `translateX(${newTransformValue}%)`;
+  }
+</script>
+
+
+</body>
+</html>
