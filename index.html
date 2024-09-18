@@ -213,27 +213,20 @@ The results confirm that the proposed framework accurately learns and generalize
   <div class="container is-max-desktop">
     <div class="content">
      <h3>Contribution</h3>
-    <p>We introduce <strong>LAMPS</strong>, a robot skill learning framework benchmark consisting of skills segmenting, merging and generalizing, 
-	    with the knowledge in unsupervised learning and LfD are used. The main contributions of our work for each sub-topic are summarized below.</p>
+    <p>We introduce <strong>LAMPS</strong>, a robot skill learning framework benchmark consisting of movement primitives (MPs) segmenting, merging and generalizing, 
+	    with the knowledge in unsupervised learning and LfD are used. The main contributions of our work for each sub-topic are summarized as below:</p>
       </div>
-    <!-- Summary of the work -->
-     <div class="content">
-    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/dataset_overview.png"
-           style="width: 100%; max-width: 400px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
-    </div>
     <!-- Explanation of the diagram -->
     <div class="content" style="margin-top: 20px;">
     <ul>
-        <li>ControlBench comprises 147 problems sourced from exercises in <a href="https://www.mhprofessional.com/schaum-s-outline-of-feedback-and-control-systems-3rd-edition-9780071829489-usa">Schaum’s outline of feedback and control systems</a>,
-          and problems gathered from undergraduate control classes at University of Michigan (EECS 460) and University of Illinois, Urbana-Champaign (ECE 486).</li>
-        <li>Both textual and visual elements are inclcuded in ControlBench to mirror the multifaceted nature of real-world applications.</li>
-        <li>We also introduced <strong>ControlBench-C</strong>, tansformed from ControlBench by reformulating 100 open-ended problems into multiple-choice questions for efficient evaluations.</li>
+        <li>The multi-periodic human skills are modeled for the first time by seamlessly merging periodic MPs and discrete MPs, successfully providing detailed descriptions of such kinds of widely-used tasks in a nuanced manner and addressing a gap in the existing literature.</li>
+        <li>Aimed at learning and generalizing long-horizon multi-periodic skills, a feasible framework is constructed in which i) an unsupervised learning method is proposed and used to segment the long demonstrations, and ii) transitional MPs are introduced to combine with periodic MPs. This framework enables fluent generalization of MPs while preserving the dynamic features of demonstrations, enhancing both validity and efficiency.</li>
+        <li>The efficacy of the proposed framework is rigorously evaluated through both simulations and experiments, which validate the framework's efficacy in learning and generalizing multi-periodic skills, demonstrating robust performance and adaptability across new scenarios.</li>
       </ul>
       <p> Here we show a brief overview of the proposed framework for <strong>L</strong>earning <strong>A</strong>daptive <strong>M</strong>ulti-Periodic <strong>S</strong>kills: LAMPS.
             <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/contribution1.png"
-           style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+           style="width: 80%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
     </div>
     </div>
   </div>
@@ -243,7 +236,7 @@ The results confirm that the proposed framework accurately learns and generalize
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content">
-     <h3>Methodology</h3>
+     <h3>Methodology and Evaluation</h3>
     <p>We assess the capabilities of GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra on ControlBench using a zero-shot prompting followed by self-checking strategy, and examine the responses through human annotation. 
       Below we present our zero-shot prompt and self-checking prompt.</p>
       </div>
@@ -263,7 +256,7 @@ The results confirm that the proposed framework accurately learns and generalize
   <div class="container is-max-desktop">
     <!-- Summary of the work -->
     <div class="content">
-      <h3>Simulation Results</h3>
+      <h3>Real-World Experiemtns</h3>
       <p><strong>Evaluation Metrics</strong>: Accuracy (<strong>ACC</strong>) is defined as the proportion of instances where the LLMs correctly solve the given problems, while Self-Checked Accuracy (<strong>ACC-s</strong>) quantifies the instances in which LLMs 
         successfully amend their answers after a self-review process. The best results for each metric are highlighted in bold.</p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
@@ -286,7 +279,7 @@ The results confirm that the proposed framework accurately learns and generalize
   <div class="container is-max-desktop">
     <!-- Summary of the work -->
     <div class="content">
-      <h3>Real-world Experiments</h3>
+      <h3>Example Results Analysis</h3>
       <p>Despite their great potential, LLMs can fail in many different ways. The following figure categorizes the LLM failures into seven types, 
         and highlight the proportions (%) for GPT-4 and Claude 3 Opus, respectively.</p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
