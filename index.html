@@ -126,7 +126,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://nkrobotlab.github.io/LAMPS/"
+                <a href="./static/videos/paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -135,7 +135,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://nkrobotlab.github.io/LAMPS/"
+                <a href="./static/videos/paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -145,7 +145,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://nkrobotlab.github.io/LAMPS/"
+                <a href="./static/videos/video.mp4"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -195,7 +195,7 @@
           <p>
 Learning from Demonstrations (LfD) methods are applied to transfer human skills to robots from expert demonstrations, enabling them to perform complex tasks.
 However, existing methods often struggle to handle such long-horizon human skills as cleaning or wiping stains on the surface, which involve multiple periodic and transitional movement primitives. 
-To address this limitation, this letter first proposes a novel framework for segmenting, learning, and generalizing multi-periodic human skills, enabling robots to effectively learn different movement primitives and execute these skills in new environments.
+To address this limitation, this paper first proposes a novel framework for segmenting, learning, and generalizing multi-periodic human skills, enabling robots to effectively learn different movement primitives and execute these skills in new scenarios.
 Specifically, The framework introduces an unsupervised learning method to segment long-horizon human demonstrations into periodic and discrete movement primitives. 
 Further, a novel type of discrete dynamical movement primitives, namely transitional movement primitives, is employed to enhance the fluidity of combining different periodic movement primitives in skills.
 To validate the effectiveness of the proposed approach, we conduct extensive experimental evaluations, including step-by-step validation of each procedure's methods in simulation and the implementation of the entire presented framework in the real world.
@@ -212,21 +212,21 @@ The results confirm that the proposed framework accurately learns and generalize
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content">
-     <h3>Contribution</h3>
-    <p>We introduce <strong>LAMPS</strong>, a robot skill learning framework benchmark consisting of movement primitives (MPs) segmenting, merging and generalizing, 
-	    with the knowledge in unsupervised learning and LfD are used. The main contributions of our work for each sub-topic are summarized as below:</p>
+     <h3>Main Contribution</h3>
+    <p>We introduce <strong>LAMPS💡</strong>, a novel robot skill learning framework consisting of movement primitives (MPs) segmenting, merging and generalizing.
+       The main contributions of our work are summarized as follows:</p>
       </div>
     <!-- Explanation of the diagram -->
     <div class="content" style="margin-top: 20px;">
     <ul>
-        <li>The multi-periodic human skills are modeled for the first time by seamlessly merging periodic MPs and discrete MPs, successfully providing detailed descriptions of such kinds of widely-used tasks in a nuanced manner and addressing a gap in the existing literature.</li>
-        <li>Aimed at learning and generalizing long-horizon multi-periodic skills, a feasible framework is constructed in which i) an unsupervised learning method is proposed and used to segment the long demonstrations, and ii) transitional MPs are introduced to combine with periodic MPs. This framework enables fluent generalization of MPs while preserving the dynamic features of demonstrations, enhancing both validity and efficiency.</li>
-        <li>The efficacy of the proposed framework is rigorously evaluated through both simulations and experiments, which validate the framework's efficacy in learning and generalizing multi-periodic skills, demonstrating robust performance and adaptability across new scenarios.</li>
+        <li>The multi-periodic human skills are modeled for the first time by merging periodic MPs and discrete MPs, successfully providing detailed descriptions of such kinds of widely-used tasks and addressing a gap in the existing literature.</li>
+        <li>The proposed framework is constructed with the knowledge in unsupervised learning and LfD, which enables fluent generalization of MPs while preserving the dynamic features of demonstrations, enhancing both validity and efficiency.</li>
+        <li>The efficacy of the proposed framework is evaluated through both simulations and experiments, which validate the framework's efficacy in learning and generalizing multi-periodic skills, demonstrating robust performance and adaptability.</li>
       </ul>
-      <p> Here we show a brief overview of the proposed framework for <strong>L</strong>earning <strong>A</strong>daptive <strong>M</strong>ulti-Periodic <strong>S</strong>kills: LAMPS.
-            <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <p> Here we show a brief overview of the proposed framework for <strong>L</strong>earning <strong>A</strong>daptive <strong>M</strong>ulti-Periodic <strong>S</strong>kills: <strong>LAMPS💡</strong>
+    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/contribution1.png"
-           style="width: 80%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+           style="width: 95%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
     </div>
     </div>
   </div>
@@ -237,41 +237,69 @@ The results confirm that the proposed framework accurately learns and generalize
   <div class="container is-max-desktop">
     <div class="content">
      <h3>Methodology and Evaluation</h3>
-    <p>We assess the capabilities of GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra on ControlBench using a zero-shot prompting followed by self-checking strategy, and examine the responses through human annotation. 
-      Below we present our zero-shot prompt and self-checking prompt.</p>
-      </div>
+    </div>
+
     <!-- Summary of the work -->
-     <div class="content">
-    <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/zero_prompt.png"
-           style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+    <div class="content" style="margin-top: 20px;">
+      <ol>
+        <li>An trajectory segmentation process based on the unsupervised learning method OPTICS (Ordering Points To Identify the Clustering Structure) is proposed and used to effectively segment different MPs from long human demonstrations.</li>
+      
+      <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;"> <!-- Center align the image container -->
+        <img src="./static/images/3d.png"
+            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+        <li>The transitional MPs are introduced to combine with different periodic MPs in a fluent way.</li>
+
+      <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+        <img src="./static/images/transitional.png" style="height: 280px; width: auto; max-width: 100%; object-fit: cover; margin: 0 0;" />
+        <img src="./static/images/compare.png" style="height: 280px; width: auto; max-width: 100%; object-fit: cover; margin: 0 0;" />
+      </div>
+
+        <li>The proposed transitional MP method is evaluated to
+          combine with periodic MPs in different phases, with different
+          positions, velocities, and accelerations</li>
+
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+        <img src="./static/images/3c.png"
+            style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+      </ol>
     </div>
   </div>
-</div>
 </section>
-
 
 
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Summary of the work -->
-    <div class="content">
-      <h3>Real-World Experiemtns</h3>
-      <p><strong>Evaluation Metrics</strong>: Accuracy (<strong>ACC</strong>) is defined as the proportion of instances where the LLMs correctly solve the given problems, while Self-Checked Accuracy (<strong>ACC-s</strong>) quantifies the instances in which LLMs 
-        successfully amend their answers after a self-review process. The best results for each metric are highlighted in bold.</p>
-      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/evaluations_whole.png"
-           style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+    <div class="content has-text-justified">
+      <h3>Real-World Experiments</h3>
+      <p>We executed and estimate one of the typical multi-periodic movement skills, wiping the whiteboard to evaluate the proposed framework LAMPS. </p>
+      
+      <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 0; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+        <div style="text-align: center; margin: 0 5px;">
+          <img src="./static/images/whiteboard.jpg" style="height: 220px; width: auto; max-width: 100%; object-fit: cover;" />
+          <p>Human Skill of Wiping Whiteboard</p>
+        </div>
+        <div style="text-align: center; margin: 0 5px;">
+          <img src="./static/images/scene.jpg" style="height: 220px; width: auto; max-width: 100%; object-fit: cover;" />
+          <p>Experimental Scene diagram</p>
+        </div>
+        <div style="text-align: center; margin: 0 5px;">
+          <img src="./static/images/res.png" style="height: 220px; width: auto; max-width: 100%; object-fit: cover;" />
+          <p>Experimental Result Diagram</p>
+        </div>
       </div>
-      <div class="content has-text-justified">
-        <ul>
-          <li>Claude 3 Opus emerges as the standout model, demonstrating superior performance in both ACC and ACC-s.</li>
-          <li>GPT-4 displays competitive accuracy in specific areas, such as Block Diagrams, Root-Locus Design, and System Sensitivity Measures, but does not match Claude 3 Opus in overall performance.</li>
-          <li>Gemini 1.0 Ultra ranks lower in general effectiveness.</li>
-        </ul>
-       </div>
+
+      <div class="content has-text-justified" style="margin-top: 20px">
+        <p> Here we show a clear overview of the experimental procedure using the propose framework. Please visit <strong><a href="./static/videos/video.mp4" target="_blank">here</a></strong> to see more details about our work.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+        <img src="./static/images/exp.png"
+             style="width: 90%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
    </div>
-  </div>
 </section>
 
 
@@ -293,58 +321,38 @@ The results confirm that the proposed framework accurately learns and generalize
         </ul>
        </div>
 	<!-- Large plot display -->
-    <div class="slider-container">
-      <div class="slider-wrapper">
-        <div class="slider-item">
-          <img src="./static/images/example1.png" alt="Image 1">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example2.png" alt="Image 2">  
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example3.png" alt="Image 3">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example4.png" alt="Image 4">
-        </div>
-           <div class="slider-item">
-          <img src="./static/images/example5.png" alt="Image 5">
-        </div>
-         <div class="slider-item">
-          <img src="./static/images/example6.png" alt="Image 6">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example7.png" alt="Image 6">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example8.png" alt="Image 6">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example9.png" alt="Image 6">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example10.png" alt="Image 6">
-        </div>
-        <div class="slider-item">
-          <img src="./static/images/example11.png" alt="Image 6">
-        </div>
+  <div class="slider-container" style="background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+    <div class="slider-wrapper">
+      <div class="slider-item">
+        <img src="./static/images/whiteboard.jpg" alt="Whiteboard" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;">
+        <p style="text-align: center;">Whiteboard</p>
       </div>
-      <button class="left-btn"><</button>
-      <button class="right-btn"> > </button>
+      <div class="slider-item">
+        <img src="./static/images/scene.jpg" alt="Scene" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;">
+        <p style="text-align: center;">Scene</p>
+      </div>
+      <div class="slider-item">
+        <img src="./static/images/res.png" alt="Result" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;">
+        <p style="text-align: center;">Result</p>
+      </div>
     </div>
+    <button class="left-btn"> < </button>
+    <button class="right-btn"> > </button>
+  </div>
    </div>
   </div>
 </section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{Darioush2024ControlBench,
+    <h2 class="title">BibTeX (Coming soon)</h2>
+    <pre><code>......</code></pre>
+<!--     <pre><code>@article{Darioush2024ControlBench,
   author    = {Darioush, Kevian and Usman, Syed and Xingang, Guo and Aaron, Havens and Geir, Dullerud and Peter, Seiler and Lianhui, Qin and Bin, Hu},
   title     = {Capabilities of Large Language Models in Control Engineering: A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra},
   journal   = {arXiv preprint arXiv:2404.03647},
   year      = {2024},
-}</code></pre>
+}</code></pre> -->
   </div>
 </section>
 
@@ -354,17 +362,15 @@ The results confirm that the proposed framework accurately learns and generalize
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            This website is licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
           <p>
             This website was built using the
 						<a href="https://nerfies.github.io/">Nerfies website</a> and the
 						<a href="https://github.com/nerfies/nerfies.github.io">source code</a>.
           </p>
-
         </div>
       </div>
     </div>
