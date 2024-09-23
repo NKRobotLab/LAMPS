@@ -310,35 +310,47 @@ The results confirm that the proposed framework accurately learns and generalize
       <h2>Example Results Analysis</h2>
       <p>Despite their great potential, LLMs can fail in many different ways. The following figure categorizes the LLM failures into seven types, 
         and highlight the proportions (%) for GPT-4 and Claude 3 Opus, respectively.</p>
-      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/error_type.png"
-           style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
-      </div>
-      <div class="content has-text-justified">
-        <ul>
-          <li>The biggest bottleneck preventing GPT-4 to achieve better accuracy on ControlBench is its limited reasoning capabilities.</li>
-          <li>The performance of Claude 3 Opus can be further boosted by improving its calculation abilities or calling external tools.</li>
-        </ul>
-       </div>
 	<!-- Large plot display -->
-  <div class="slider-container" style="background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
-    <div class="slider-wrapper">
-      <div class="slider-item">
-        <img src="./static/images/whiteboard.jpg" alt="Whiteboard" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;">
-        <p style="text-align: center;">Whiteboard</p>
-      </div>
-      <div class="slider-item">
-        <img src="./static/images/scene.jpg" alt="Scene" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;">
-        <p style="text-align: center;">Scene</p>
-      </div>
-      <div class="slider-item">
-        <img src="./static/images/res.png" alt="Result" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;">
-        <p style="text-align: center;">Result</p>
-      </div>
+   
+  <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 20px; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+    <div style="text-align: center; margin: 0 15px;">
+      <img src="./static/videos/p.gif" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;" />
+      <p>Execution of First Periodic MP</p>
     </div>
-    <button class="left-btn"> < </button>
-    <button class="right-btn"> > </button>
+    <div style="text-align: center; margin: 0 15px;">
+      <img src="./static/videos/t.gif" style="height: 300px; width: auto; max-width: 100%; object-fit: cover;" />
+      <p>Execution of First Transitional MP</p>
+    </div>
   </div>
+  </div>
+
+  <p>And also, Impedance control can help to improve the performance of cleaning: </p>
+  
+
+<div class="columns is-centered" style="margin-top: 10px;">
+<div class="column">
+  <div class="content">
+    <h4 class="title is-5" style="text-align: center;">With Impedance Control</h4>
+    <video id="with" autoplay controls muted loop playsinline height="100%">
+      <source src="./static/videos/with.mp4"
+              type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<div class="column">
+  <h4 class="title is-5" style="text-align: center;">Without Impedance Control</h4>
+  <div class="columns is-centered">
+    <div class="column content">
+      <video id="without" autoplay controls muted loop playsinline height="100%">
+        <source src="./static/videos/without.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+    </div>
+    </div>
+    </div>
+
    </div>
   </div>
 </section>
@@ -433,6 +445,19 @@ The results confirm that the proposed framework accurately learns and generalize
     const newTransformValue = -currentIndex * 100; // Assuming each slide is 100% of the container width
     sliderWrapper.style.transform = `translateX(${newTransformValue}%)`;
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const videos = [document.getElementById('with'), document.getElementById('without')];
+  
+  videos.forEach(video => {
+    video.addEventListener('volumechange', function () {
+      if (!video.muted) {
+        video.muted = true;
+      }
+    });
+  });
+});
+
 </script>
 
 
